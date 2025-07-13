@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+*{
+    font-family: Ubuntu;
+    -webkit-tap-highlight-color: transparent;
+}
+
+h1{
+    font-family: Poppins;
+    font-weight: 600;
+    font-size: 2.5rem;
+    color: #333;
+    text-align: center;
+    text-decoration: underline;
+}
+
+body{
+    background-color: #ffcc6e7b;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.card {
+    width: min(300px, 100%);
+    background-color: #fefefe;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    color: #141417;
+    margin: 0;
+    flex-shrink: 0;
+    flex-grow: 1;
+    flex-basis: 300px;
+    max-width: 350px;
+}
+.card__hero {
+    background-color: #fef4e2;
+    border-radius: 0.5rem 0.5rem 0 0;
+    padding: 1.5rem;
+    font-size: 0.875rem;
+}
+.card__hero .card__job-title {
+    margin: 2rem 0;
+    font-size: 2rem;
+    font-weight: 600;
+    padding-right: 2rem;
+}
+.card__hero-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 1rem;
+    font-weight: 700;
+}
+.card__footer {
+    display: flex;
+    justify-content: flex-start;
+    align-items: start;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    padding: 0.75rem;
+    row-gap: 1rem;
+    font-weight: 700;
+    font-size: 0.875rem;
+}
+@media (min-width: 340px) {
+    .card__footer {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+    }
+}
+.card__job-summary {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 0.75rem;
+}
+.card__btn {
+    width: 100%;
+    font-weight: 400;
+    border: none;
+    display: block;
+    cursor: pointer;
+    text-align: center;
+    padding: 0.5rem 1.25rem;
+    border-radius: 1rem;
+    background-color: #141417;
+    color: #fff;
+    font-size: 1rem;
+}
+
+.card__btn:hover {
+    background-color: #333;
+    color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+@media (min-width: 340px) {
+    .card__btn {
+        width: max-content;
+    }
+}
+
+i{
+    font-size: 1.5rem;
+    color: #000000e2;
+}
+
+.footer {
+    text-align: center;
+    padding: 20px;  
+    margin-top: 40px; 
+    background-color: #fef4e2;  
+    width: 100%;
+    box-sizing: border-box; 
+}
+
+.footer .p {
+    margin: 5px 0; 
+}
+
+.sinewave-ventures {
+    display: flex; 
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.venture-info,
+.venture-info-by {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 0.9em; 
+    color: #555;
+}
+
+#searchInput {
+    width: 300px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    font-size: 16px;
+    transition: all ease 0.5s;
+}
+
+#serchInput:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+#searchInput:hover {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+#searchButton:hover{
+    background-color: #007bff;
+    color: #ffffff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+#searchButton {
+    padding: 8px 10px;
+    border: none;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    border-radius: 35px;
+    cursor: pointer;
+    transition: all ease 0.5s;
+    font-size: 20px;
+}
+
+.hidden-message {
+    display: none; 
+}
+
+#noResultsMessage {
+    text-align: center;
+    color: #000000; 
+    font-size: 1.2rem;
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #000000b8;
+    border-radius: 5px;
+    background-color: #ffffffc5;
+    width: min(300px, 90%); 
+}
