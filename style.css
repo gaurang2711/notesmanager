@@ -14,7 +14,7 @@ h1{
 }
 
 body{
-    background-color: #ffcc6e7b;
+    background-color: #90d5ff;
     margin: 0;
     padding: 0;
     display: flex;
@@ -48,7 +48,7 @@ body{
     max-width: 350px;
 }
 .card__hero {
-    background-color: #fef4e2;
+    background-color: #90d5ff6e;
     border-radius: 0.5rem 0.5rem 0 0;
     padding: 1.5rem;
     font-size: 0.875rem;
@@ -129,7 +129,7 @@ i{
     text-align: center;
     padding: 20px;  
     margin-top: 40px; 
-    background-color: #fef4e2;  
+    background-color: #b1e1ff6e;  
     width: 100%;
     box-sizing: border-box; 
 }

@@ -1,0 +1,9 @@
+<TILL>
+date: July 18, 2025{
+    Version: 1.0.18;
+    Changes:{
+        - Changed color scheme to shades of blue;
+        - Made more responsive for mobile devices;
+        - Fixed bug with navigation menu not displaying correctly on smaller screens;
+        }
+}

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmic G Image</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #0d1117;
+            color: #c9d1d9;
+            flex-direction: column;
+            padding: 20px;
+        }
+        .container {
+            background-color: #161b22;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 0.5rem;
+            margin-top: 1.5rem;
+            box-shadow: 0 0 15px rgba(172, 50, 228, 0.5); /* Matching gradient color */
+        }
+        .loading-indicator {
+            margin-top: 1.5rem;
+            font-size: 1.1rem;
+            color: #8b949e;
+        }
+        textarea {
+            width: 100%;
+            padding: 0.75rem;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 0.5rem;
+            border: 1px solid #30363d;
+            background-color: #0d1117;
+            color: #c9d1d9;
+            resize: vertical;
+            min-height: 80px;
+        }
+        button {
+            background-color: #4801FF; /* Royal Blue */
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #7918F2; /* Lighter purple */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-3xl font-bold text-blue-400 mb-4">Image Generator</h1>
+        <p class="text-gray-300">Enter your prompt below to generate an image:</p>
+
+        <textarea id="prompt-input" placeholder="e.g., A futuristic city at sunset, cyberpunk style, neon lights, highly detailed"></textarea>
+        <button id="generate-button">Generate Image</button>
+
+        <div id="image-output" class="loading-indicator">
+            Click "Generate Image" to see your creation!
+        </div>
+    </div>
+
+    <script>
+        async function generateAndDisplayImage() {
+            const promptInput = document.getElementById('prompt-input');
+            const outputDiv = document.getElementById('image-output');
+            const prompt = promptInput.value.trim(); // Get prompt from textarea
+
+            if (!prompt) {
+                outputDiv.innerHTML = '<p class="text-yellow-400">Please enter a prompt before generating an image.</p>';
+                return;
+            }
+
+            outputDiv.innerHTML = 'Generating image... Please wait.';
+
+            try {
+                const payload = { instances: { prompt: prompt }, parameters: { "sampleCount": 1} };
+                const apiKey = ""; // This should remain empty for automatic injection in this environment.
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/imagen-3.0-generate-002:predict?key=${apiKey}`;
+
+                console.log("Attempting to fetch from API URL:", apiUrl);
+
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                // Check if the response was successful
+                if (!response.ok) {
+                    const errorText = await response.text();
+                    console.error('HTTP Error:', response.status, errorText);
+                    let errorMessage = `Failed to generate image: Server responded with status ${response.status}.`;
+                    if (response.status === 401) {
+                        errorMessage += ` This is an authentication error (401 Unauthorized). Please ensure your API key is valid and has permissions for the Imagen model. In this environment, the API key is usually provided automatically, so if this persists, there might be an issue with the environment's setup or your project's API access.`;
+                    } else {
+                        errorMessage += ` ${errorText}`;
+                    }
+                    outputDiv.innerHTML = `<p class="text-red-400">${errorMessage}</p>`;
+                    return;
+                }
+
+                let result;
+                try {
+                    // Attempt to parse JSON
+                    result = await response.json();
+                } catch (jsonError) {
+                    console.error('JSON Parsing Error:', jsonError);
+                    outputDiv.innerHTML = `<p class="text-red-400">Failed to parse API response as JSON. This might mean the response was incomplete or malformed. Error: ${jsonError.message}</p>`;
+                    return;
+                }
+
+
+                if (result.predictions && result.predictions.length > 0 && result.predictions[0].bytesBase64Encoded) {
+                    const imageUrl = `data:image/png;base64,${result.predictions[0].bytesBase64Encoded}`;
+                    outputDiv.innerHTML = `<img src="${imageUrl}" alt="${prompt}">`;
+                } else {
+                    outputDiv.innerHTML = '<p class="text-red-400">Failed to generate image. The model might have returned an empty or malformed response structure (e.g., missing "predictions" or "bytesBase64Encoded").</p>';
+                }
+            } catch (error) {
+                console.error('Error generating image:', error);
+                outputDiv.innerHTML = `<p class="text-red-400">An error occurred while generating the image: ${error.message}. This might be due to a network issue or a problem with the API endpoint.</p>`;
+            }
+        }
+
+        // Set initial prompt and attach event listener
+        document.addEventListener('DOMContentLoaded', () => {
+            const promptInput = document.getElementById('prompt-input');
+            promptInput.value = "letter 'G' made of swirling cosmic clouds and nebulae, surrounded by stars, deep space colors, highly detailed, ethereal, mystical"; // Default prompt
+
+            document.getElementById('generate-button').addEventListener('click', generateAndDisplayImage);
+        });
+    </script>
+</body>
+</html>
