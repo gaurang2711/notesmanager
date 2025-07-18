@@ -8,255 +8,306 @@
     <link rel="shortcut icon" href="note-sticky-solid (3).svg" type="image/x-icon">
     <script src="https://kit.fontawesome.com/711cc87067.js" crossorigin="anonymous"></script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7541694422642645"
-     crossorigin="anonymous"></script>
+      crossorigin="anonymous"></script>
 </head>
-<body>
-    <h1>NoteSense</h1>
-    <br>
-
-    <div class="searchBar">
-        <input type="text" id="searchInput" placeholder="Search for notes...">
-        <button id="searchButton"><i class="fa-solid fa-magnifying-glass"></i></button>
+<body class="hidden"> <!-- ADDED 'hidden' CLASS TO BODY -->
+    <!-- Splash Screen HTML - This is the first thing visible once body is revealed -->
+    <div id="splashScreen">
+        <h1>NoteSense</h1>
+        <div class="splash-loader"></div>
+        <!-- Audio tag for your custom sound -->
+        <!-- IMPORTANT: Replace 'sounds/splash.mp3' with the actual path to your audio file -->
+        <audio id="splashSound" src="sounds/splash.mp3" preload="auto"></audio> 
+        <!-- Button to initiate the experience and play sound, initially hidden -->
+        <button id="startButton" class="splash-button hidden-button">Enter NoteSense</button>
     </div>
 
-
-    <div class="cards-container">
-        <article class="card">
-            <section class="card__hero">
-                <header class="card__hero-header">
-                    <div class="card__icon">
-                    </div>
-                </header>
-                <p class="card__job-title">Data Structure and Algorithms</p>
-            </section>
-            <footer class="card__footer">
-                <div class="card__job-summary">
-                    <div class="card__job-icon">
-                        <i class="fa-solid fa-note-sticky"></i>
-                    </div>
-                    <div class="card__job">
-                        <p class="card__job-title">
-                            Data Structures <br />
-                            and Algorithms
-                        </p>
-                    </div>
-                </div>
-                <a href="pages/DSA.html" style="text-decoration: none;"><button class="card__btn">view</button></a>
-            </footer>
-        </article>
-        <article class="card">
-            <section class="card__hero">
-                <header class="card__hero-header">
-                    <div class="card__icon">
-                    </div>
-                </header>
-                <p class="card__job-title">Data Communications</p>
-            </section>
-            <footer class="card__footer">
-                <div class="card__job-summary">
-                    <div class="card__job-icon">
-                        <i class="fa-solid fa-note-sticky"></i>
-                    </div>
-                    <div class="card__job">
-                        <p class="card__job-title">
-                            Data <br />
-                            Communications
-                        </p>
-                    </div>
-                </div>
-                <a href="pages/DC.html" style="text-decoration: none;"><button class="card__btn">view</button></a>
-            </footer>
-        </article>
-        
-        <article class="card">
-            <section class="card__hero">
-                <header class="card__hero-header">
-                    <div class="card__icon">
-                    </div>
-                </header>
-                <p class="card__job-title">C++ Programming</p>
-            </section>
-            <footer class="card__footer">
-                <div class="card__job-summary">
-                    <div class="card__job-icon">
-                        <i class="fa-solid fa-note-sticky"></i>
-                    </div>
-                    <div class="card__job">
-                        <p class="card__job-title">
-                            C++ <br />
-                            Programming
-                        </p>
-                    
-                    </div>
-                </div>
-                <a href="pages/CPP.html" style="text-decoration: none;"><button class="card__btn">view</button></a>
-            </footer>
-        </article>
-        
-        <article class="card">
-            <section class="card__hero">
-                <header class="card__hero-header">
-                    <div class="card__icon">
-                    </div>
-                </header>
-                <p class="card__job-title">DSA Lab Book Solutions</p>
-            </section>
-            <footer class="card__footer">
-                <div class="card__job-summary">
-                    <div class="card__job-icon">
-                        <i class="fa-solid fa-note-sticky"></i>
-                    </div>
-                    <div class="card__job">
-                        <p class="card__job-title">
-                            DSA Lab Book<br />
-                            Solutions
-                        </p>
-                    
-                    </div>
-                </div>
-                <a href="pages/DSALB.html" style="text-decoration: none;"><button class="card__btn">view</button></a>
-            </footer>
-        </article>
-
-        <article class="card">
-            <section class="card__hero">
-                <header class="card__hero-header">
-                    <div class="card__icon">
-                    </div>
-                </header>
-                <p class="card__job-title">(DC) Lab Book Solutions</p>
-            </section>
-            <footer class="card__footer">
-                <div class="card__job-summary">
-                    <div class="card__job-icon">
-                        <i class="fa-solid fa-note-sticky"></i>
-                    </div>
-                    <div class="card__job">
-                        <p class="card__job-title">
-                            DC Lab Book<br />
-                            Solutions
-                        </p>
-                    
-                    </div>
-                </div>
-                <a href="pages/DCLB.html" style="text-decoration: none;"><button class="card__btn">view</button></a>
-            </footer>
-        </article>
-
-        <article class="card">
-            <section class="card__hero">
-                <header class="card__hero-header">
-                    <div class="card__icon">
-                    </div>
-                </header>
-                <p class="card__job-title">C++ Lab Book Solutions</p>
-            </section>
-            <footer class="card__footer">
-                <div class="card__job-summary">
-                    <div class="card__job-icon">
-                        <i class="fa-solid fa-note-sticky"></i>
-                    </div>
-                    <div class="card__job">
-                        <p class="card__job-title">
-                            C++ Lab Book<br />
-                            Solutions
-                        </p>
-                    
-                    </div>
-                </div>
-                <a href="pages/CPPLB.html" style="text-decoration: none;"><button class="card__btn">view</button></a>
-            </footer>
-        </article>
-
-        <article class="card">
-            <section class="card__hero">
-                <header class="card__hero-header">
-                    <div class="card__icon">
-                    </div>
-                </header>
-                <p class="card__job-title">Request some Content</p>
-            </section>
-            <footer class="card__footer">
-                <div class="card__job-summary">
-                    <div class="card__job-icon">
-                        <i class="fa-solid fa-note-sticky"></i>
-                    </div>
-                    <div class="card__job">
-                        <p class="card__job-title">
-                            Request some<br />
-                            Content
-                        </p>
-                    
-                    </div>
-                </div>
-                <a href="https://forms.gle/DiScBm7fNKcCkNvE9" target="_blank" style="text-decoration: none;"><button class="card__btn">Go</button></a>
-            </footer>
-        </article>
-        
-        <article class="card">
-            <section class="card__hero">
-                <header class="card__hero-header">
-                    <div class="card__icon">
-                    </div>
-                </header>
-                <p class="card__job-title">Upload or Contribute</p>
-            </section>
-            <footer class="card__footer">
-                <div class="card__job-summary">
-                    <div class="card__job-icon">
-                        <i class="fa-solid fa-note-sticky"></i>
-                    </div>
-                    <div class="card__job">
-                        <p class="card__job-title">
-                            Upload or Contribute<br />
-                            Content
-                        </p>
-                    
-                    </div>
-                </div>
-                <a href="https://forms.gle/gzFaDSY6nyYjJLYF6" style="text-decoration: none;" target="_blank"><button class="card__btn">Go</button></a>
-            </footer>
-        </article>
-
-        <article class="card">
-            <section class="card__hero">
-                <header class="card__hero-header">
-                    <div class="card__icon">
-                    </div>
-                </header>
-                <p class="card__job-title">Get Daily Notes here</p>
-            </section>
-            <footer class="card__footer">
-                <div class="card__job-summary">
-                    <div class="card__job-icon">
-                        <i class="fa-solid fa-note-sticky"></i>
-                    </div>
-                    <div class="card__job">
-                        <p class="card__job-title">
-                            Get Daily Notes<br />
-                            Here...
-                        </p>
-                    
-                    </div>
-                </div>
-                <a href="https://bcahw.netlify.app" style="text-decoration: none;" target="_blank"><button class="card__btn">Go</button></a>
-            </footer>
-        </article>
+    <!-- User Info Modal - Initially hidden, appears after main content loads if user data is missing -->
+    <div id="userModalOverlay" class="modal-overlay hidden">
+        <div id="userModalContent" class="modal-content hidden">
+            <h2>Welcome to NoteSense!</h2>
+            <p>Please tell us a little about yourself to personalize your experience.</p>
+            <div class="modal-input-group">
+                <label for="userNameInput">Your Name:</label>
+                <input type="text" id="userNameInput" placeholder="e.g., Gauruu" required>
+            </div>
+            <div class="modal-input-group">
+                <label for="userBirthdateInput">Your Birthdate:</label>
+                <input type="date" id="userBirthdateInput" required>
+            </div>
+            <button id="saveUserBtn" class="modal-button">Save & Continue</button>
+        </div>
     </div>
 
-     <div id="noResultsMessage" class="hidden-message">
-        <p>No results found. Please try a different search term.</p>
+    <!-- Main Application Container - All website content except splash screen and modal -->
+    <!-- Initially hidden, becomes visible after splash screen fades -->
+    <div id="appContainer" class="hidden"> 
+        <header class="main-header">
+            <!-- Main website title -->
+            <h1>NoteSense</h1>
+            <!-- Placeholder for displaying the user's name and birthdate -->
+            <div id="usernameDisplay" class="username-display hidden"></div>
+        </header>
+        <br>
+
+        <div class="searchBar">
+            <input type="text" id="searchInput" placeholder="Search for notes...">
+            <button id="searchButton"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+
+        <!-- Skeleton Loader - Initially hidden, shown during content loading/searching -->
+        <div class="skeleton-container hidden" id="skeletonLoader">
+            <div class="card skeleton-card">
+                <div class="card__skeleton card__title"></div>
+                <div class="card__skeleton card__description"></div>
+            </div>
+            <div class="card skeleton-card">
+                <div class="card__skeleton card__title"></div>
+                <div class="card__skeleton card__description"></div>
+            </div>
+            <div class="card skeleton-card">
+                <div class="card__skeleton card__title"></div>
+                <div class="card__skeleton card__description"></div>
+            </div>
+        </div>
+
+        <!-- Actual Cards Container - Initially hidden, becomes visible after skeleton fades -->
+        <div class="cards-container hidden" id="mainContent">
+            <article class="card">
+                <section class="card__hero">
+                    <header class="card__hero-header">
+                        <div class="card__icon">
+                        </div>
+                    </header>
+                    <p class="card__job-title">Data Structure and Algorithms</p>
+                </section>
+                <footer class="card__footer">
+                    <div class="card__job-summary">
+                        <div class="card__job-icon">
+                            <i class="fa-solid fa-note-sticky"></i>
+                        </div>
+                        <div class="card__job">
+                            <p class="card__job-title">
+                                Data Structures <br />
+                                and Algorithms
+                            </p>
+                        </div>
+                    </div>
+                    <a href="pages/DSA.html" style="text-decoration: none;"><button class="card__btn">view</button></a>
+                </footer>
+            </article>
+            <article class="card">
+                <section class="card__hero">
+                    <header class="card__hero-header">
+                        <div class="card__icon">
+                        </div>
+                    </header>
+                    <p class="card__job-title">Data Communications</p>
+                </section>
+                <footer class="card__footer">
+                    <div class="card__job-summary">
+                        <div class="card__job-icon">
+                            <i class="fa-solid fa-note-sticky"></i>
+                        </div>
+                        <div class="card__job">
+                            <p class="card__job-title">
+                                Data <br />
+                                Communications
+                            </p>
+                        </div>
+                    </div>
+                    <a href="pages/DC.html" style="text-decoration: none;"><button class="card__btn">view</button></a>
+                </footer>
+            </article>
+            
+            <article class="card">
+                <section class="card__hero">
+                    <header class="card__hero-header">
+                        <div class="card__icon">
+                        </div>
+                    </header>
+                    <p class="card__job-title">C++ Programming</p>
+                </section>
+                <footer class="card__footer">
+                    <div class="card__job-summary">
+                        <div class="card__job-icon">
+                            <i class="fa-solid fa-note-sticky"></i>
+                        </div>
+                        <div class="card__job">
+                            <p class="card__job-title">
+                                C++ <br />
+                                Programming
+                            </p>
+                        </div>
+                        
+                    </div>
+                    <a href="pages/CPP.html" style="text-decoration: none;"><button class="card__btn">view</button></a>
+                </footer>
+            </article>
+            
+            <article class="card">
+                <section class="card__hero">
+                    <header class="card__hero-header">
+                        <div class="card__icon">
+                        </div>
+                    </header>
+                    <p class="card__job-title">DSA Lab Book Solutions</p>
+                </section>
+                <footer class="card__footer">
+                    <div class="card__job-summary">
+                        <div class="card__job-icon">
+                            <i class="fa-solid fa-note-sticky"></i>
+                        </div>
+                        <div class="card__job">
+                            <p class="card__job-title">
+                                DSA Lab Book<br />
+                                Solutions
+                            </p>
+                        
+                        </div>
+                    </div>
+                    <a href="pages/DSALB.html" style="text-decoration: none;"><button class="card__btn">view</button></a>
+                </footer>
+            </article>
+
+            <article class="card">
+                <section class="card__hero">
+                    <header class="card__hero-header">
+                        <div class="card__icon">
+                        </div>
+                    </header>
+                    <p class="card__job-title">(DC) Lab Book Solutions</p>
+                </section>
+                <footer class="card__footer">
+                    <div class="card__job-summary">
+                        <div class="card__job-icon">
+                            <i class="fa-solid fa-note-sticky"></i>
+                        </div>
+                        <div class="card__job">
+                            <p class="card__job-title">
+                                DC Lab Book<br />
+                                Solutions
+                            </p>
+                        
+                        </div>
+                    </div>
+                    <a href="pages/DCLB.html" style="text-decoration: none;"><button class="card__btn">view</button></a>
+                </footer>
+            </article>
+
+            <article class="card">
+                <section class="card__hero">
+                    <header class="card__hero-header">
+                        <div class="card__icon">
+                        </div>
+                    </header>
+                    <p class="card__job-title">C++ Lab Book Solutions</p>
+                </section>
+                <footer class="card__footer">
+                    <div class="card__job-summary">
+                        <div class="card__job-icon">
+                            <i class="fa-solid fa-note-sticky"></i>
+                        </div>
+                        <div class="card__job">
+                            <p class="card__job-title">
+                                C++ Lab Book<br />
+                                Solutions
+                            </p>
+                        
+                        </div>
+                    </div>
+                    <a href="pages/CPPLB.html" style="text-decoration: none;"><button class="card__btn">view</button></a>
+                </footer>
+            </article>
+
+            <article class="card">
+                <section class="card__hero">
+                    <header class="card__hero-header">
+                        <div class="card__icon">
+                        </div>
+                    </header>
+                    <p class="card__job-title">Request some Content</p>
+                </section>
+                <footer class="card__footer">
+                    <div class="card__job-summary">
+                        <div class="card__job-icon">
+                            <i class="fa-solid fa-note-sticky"></i>
+                        </div>
+                        <div class="card__job">
+                            <p class="card__job-title">
+                                Request some<br />
+                                Content
+                            </p>
+                        
+                        </div>
+                    </div>
+                    <a href="https://forms.gle/DiScBm7fNKcCkNvE9" target="_blank" style="text-decoration: none;"><button class="card__btn">Go</button></a>
+                </footer>
+            </article>
+            
+            <article class="card">
+                <section class="card__hero">
+                    <header class="card__hero-header">
+                        <div class="card__icon">
+                        </div>
+                    </header>
+                    <p class="card__job-title">Upload or Contribute</p>
+                </section>
+                <footer class="card__footer">
+                    <div class="card__job-summary">
+                        <div class="card__job-icon">
+                            <i class="fa-solid fa-note-sticky"></i>
+                        </div>
+                        <div class="card__job">
+                            <p class="card__job-title">
+                                Upload or Contribute<br />
+                                Content
+                            </p>
+                        
+                        </div>
+                    </div>
+                    <a href="https://forms.gle/gzFaDSY6nyYjJLYF6" target="_blank" style="text-decoration: none;"><button class="card__btn">Go</button></a>
+                </footer>
+            </article>
+
+            <article class="card">
+                <section class="card__hero">
+                    <header class="card__hero-header">
+                        <div class="card__icon">
+                        </div>
+                    </header>
+                    <p class="card__job-title">Get Daily Notes here</p>
+                </section>
+                <footer class="card__footer">
+                    <div class="card__job-summary">
+                        <div class="card__job-icon">
+                            <i class="fa-solid fa-note-sticky"></i>
+                        </div>
+                        <div class="card__job">
+                            <p class="card__job-title">
+                                Get Daily Notes<br />
+                                Here...
+                            </p>
+                        
+                        </div>
+                    </div>
+                    <a href="https://bcahw.netlify.app" style="text-decoration: none;" target="_blank"><button class="card__btn">Go</button></a>
+                </footer>
+            </article>
+        </div>
+
+        <div id="noResultsMessage" class="hidden-message">
+            <p>No results found. Please try a different search term.</p>
+        </div>
+
+      <footer class="footer">
+        <p class="p">Created by <a href="https://gauraang.netlify.app">Gaurang Dalal</a> | &copy; <span id="current-year-gaurang"></span></p>
+        <p class="p">Underhead &copy; <a href="https://notesforbca.netlify.app" target="_blank">NotesForBCA Organizations</a></p>
+        <p style="font-family: Poppins;">A <span style="font-family: 'Courier New', Courier, monospace;">SineWaveCodeLab</span> Productions. <br>
+            A <span style="font-family: Verdana; font-size: larger;" >SineWaveCreativeLab</span> Venture.
+        </p>
+    </footer>
     </div>
-
-  <footer class="footer">
-    <p class="p">Created by <a href="https://gauraang.netlify.app">Gaurang Dalal</a> | &copy; <span id="current-year-gaurang"></span></p>
-    <p class="p">Underhead &copy; <a href="https://notesforbca.netlify.app" target="_blank">NotesForBCA Organizations</a></p>
-    <p style="font-family: Poppins;">A <span style="font-family: 'Courier New', Courier, monospace;">SineWaveCodeLab</span> Productions. <br>
-        A <span style="font-family: Verdana; font-size: larger;" >SineWaveCreativeLab</span> Venture.
-    </p>
-</footer>
-
-
     <script src="script.js"></script>
 </body>
 </html>

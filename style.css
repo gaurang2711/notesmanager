@@ -4,15 +4,96 @@
     -webkit-tap-highlight-color: transparent;
 }
 
-h1{
+/* Global hidden class - applies to body initially */
+.hidden {
+    display: none !important;
+}
+
+/* Splash Screen Styles */
+#splashScreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #90d5ff; /* Matches your body background */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Ensure it's on top of everything */
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.5s ease-out, visibility 0.5s ease-out; /* Smooth fade-out */
+}
+
+#splashScreen h1 {
     font-family: Poppins;
     font-weight: 600;
-    font-size: 2.5rem;
+    font-size: 4rem; /* Larger font size for splash screen */
     color: #333;
     text-align: center;
     text-decoration: underline;
+    margin-bottom: 20px; /* Space from loader */
 }
 
+.splash-loader {
+    border: 5px solid #f3f3f3; /* Light grey */
+    border-top: 5px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Class to hide the splash screen after its animation */
+.splash-hidden {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none; /* Prevents clicks on hidden splash screen */
+}
+
+/* Splash Button Styles */
+.splash-button {
+    padding: 15px 30px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 30px; /* Space from loader/title */
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out, background-color 0.3s ease; /* Added opacity and transform transition */
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.4);
+}
+
+.splash-button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+/* Class to initially hide the button */
+.hidden-button {
+    opacity: 0;
+    pointer-events: none; /* Prevents interaction when hidden */
+    transform: translateY(20px); /* For a subtle slide-up animation */
+}
+
+/* Class to make the button visible and trigger its animation */
+.splash-button.visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+
+/* General body and main content styles */
 body{
     background-color: #90d5ff;
     margin: 0;
@@ -23,6 +104,135 @@ body{
     justify-content: center;
     min-height: 100vh;
 }
+
+/* New: Header for main content */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%; /* Take full width of appContainer */
+    max-width: 1200px; /* Match cards-container max-width */
+    padding: 20px;
+    box-sizing: border-box; /* Include padding in width */
+}
+
+.main-header h1 {
+    font-family: Poppins;
+    font-weight: 600;
+    font-size: 2.5rem;
+    color: #333;
+    text-decoration: underline;
+    margin: 0; /* Reset margin */
+}
+
+.username-display {
+    background-color: #ffffffc5;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #333;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    white-space: nowrap; /* Prevent text wrapping */
+}
+
+/* User Info Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Dark semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000; /* Above splash screen if it somehow lingers */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    transform: scale(0.9); /* Initial scale for pop-in effect */
+    opacity: 0; /* Initial opacity for fade-in */
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+}
+
+.modal-content.visible { /* Class added by JS to show the modal */
+    transform: scale(1);
+    opacity: 1;
+}
+
+.modal-content h2 {
+    font-family: Poppins;
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.modal-content p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 25px;
+}
+
+.modal-input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.modal-input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.modal-input-group input[type="text"],
+.modal-input-group input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    box-sizing: border-box; /* Include padding in width */
+}
+
+.modal-button {
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: #28a745; /* Green for save */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.modal-button:hover {
+    background-color: #218838;
+    transform: translateY(-1px);
+}
+
+
+/* App Container - will be shown after splash */
+#appContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    padding-top: 20px; /* Add some top padding to make space for header */
+    box-sizing: border-box;
+}
+
 
 .cards-container {
     display: flex;
@@ -129,7 +339,7 @@ i{
     text-align: center;
     padding: 20px;  
     margin-top: 40px; 
-    background-color: #b1e1ff6e;  
+    background-color: #b1e1ff6e;   
     width: 100%;
     box-sizing: border-box; 
 }
@@ -162,7 +372,7 @@ i{
     transition: all ease 0.5s;
 }
 
-#serchInput:focus {
+#searchInput:focus {
     outline: none;
     border-color: #007bff;
 }
@@ -203,4 +413,63 @@ i{
     border-radius: 5px;
     background-color: #ffffffc5;
     width: min(300px, 90%); 
+}
+
+.skeleton-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.skeleton-card {
+    width: min(300px, 100%);
+    flex-shrink: 0;
+    flex-grow: 1;
+    flex-basis: 300px;
+    max-width: 350px;
+    padding: 1rem;
+    text-align: center;
+    border-radius: .8rem;
+    background-color: white;
+    min-height: 200px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card__skeleton {
+    background-image: linear-gradient(
+        90deg,
+        #ccc 0px,
+        rgb(229 229 229 / 90%) 40px,
+        #ccc 80px
+    );
+    background-size: 300%;
+    background-position: 100% 0;
+    border-radius: inherit;
+    animation: shimmer 1.5s infinite;
+}
+
+.card__title {
+    height: 15px;
+    margin-bottom: 15px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card__description {
+    height: 100px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@keyframes shimmer {
+    to {
+        background-position: -100% 0;
+    }
 }

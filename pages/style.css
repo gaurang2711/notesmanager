@@ -14,7 +14,7 @@ h1{
 }
 
 body{
-    background-color: #ffcc6e7b;
+    background-color: #90d5ff;
     margin: 0;
     padding: 0;
     display: flex;
@@ -24,12 +24,13 @@ body{
     min-height: 100vh;
 }
 
+/* Original cards-container styling - Reverted to flexbox */
 .cards-container {
-    display: flex;
+    display: flex; /* Keep it flexbox as per your original design */
     flex-wrap: wrap;
     justify-content: center;
     align-items: flex-start;
-    gap: 20px;
+    gap: 20px; /* Keep your original gap */
     padding: 20px;
     max-width: 1200px;
     width: 100%;
@@ -48,7 +49,7 @@ body{
     max-width: 350px;
 }
 .card__hero {
-    background-color: #fef4e2;
+    background-color: #90d5ff6e;
     border-radius: 0.5rem 0.5rem 0 0;
     padding: 1.5rem;
     font-size: 0.875rem;
@@ -114,7 +115,6 @@ body{
     color: #fff;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
-
 @media (min-width: 340px) {
     .card__btn {
         width: max-content;
@@ -130,7 +130,7 @@ i{
     text-align: center;
     padding: 20px;  
     margin-top: 40px; 
-    background-color: #fef4e2;  
+    background-color: #b1e1ff6e;   
     width: 100%;
     box-sizing: border-box; 
 }
@@ -163,7 +163,7 @@ i{
     transition: all ease 0.5s;
 }
 
-#serchInput:focus {
+#searchInput:focus { /* Fixed typo: serchInput -> searchInput */
     outline: none;
     border-color: #007bff;
 }
@@ -206,20 +206,84 @@ i{
     width: min(300px, 90%); 
 }
 
-#backButton{
-    padding: 5px 7px;
-    border: none;
-    background-color: #ffffff;
-    color: rgb(0, 0, 0);
-    border-radius: 35px;
-    cursor: pointer;
-    transition: all ease 0.5s;
-    font-size: 20px;
-    border: 1px solid #000;
+.hidden {
+    display: none !important;
 }
 
-#backButton:hover {
-    background-color: #007bff;
-    color: #ffffff;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+
+.skeleton-container {
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: center; 
+    align-items: flex-start; 
+    gap: 20px; 
+    padding: 20px;
+    max-width: 1200px; 
+    width: 100%; 
+}
+
+.skeleton-card {
+    width: min(300px, 100%); 
+    flex-shrink: 0; 
+    flex-grow: 1; 
+    flex-basis: 300px; 
+    max-width: 350px; 
+
+    padding: 1rem;
+    text-align: center;
+    border-radius: .8rem;
+    background-color: rgb(255, 255, 255);
+    min-height: 200px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card__skeleton {
+    background-image: linear-gradient(
+        90deg,
+        #00c8ff 0px,
+        rgba(47, 155, 185, 0.9) 40px,
+        #5557d75f 80px
+    );
+    background-size: 300%;
+    background-position: 100% 0;
+    border-radius: inherit;
+    animation: shimmer 1.5s infinite;
+}
+
+.card__title {
+    height: 15px;
+    margin-bottom: 15px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card__description {
+    height: 100px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@keyframes shimmer {
+    to {
+        background-position: -100% 0;
+    }
+}
+#backButton{
+    padding: 8px 10px;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: transparent;
+    font-weight: bolder;
+    font-size: 15px;   
+    border: 2px solid #000000b8;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all ease 0.5s;
+}
+
+#backButton:hover{
+    color: white;
+    transform: translateX(-10px);
+    background-color: #000000b8;
 }

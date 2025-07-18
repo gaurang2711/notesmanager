@@ -5,5 +5,10 @@ date: July 18, 2025{
         - Changed color scheme to shades of blue;
         - Made more responsive for mobile devices;
         - Fixed bug with navigation menu not displaying correctly on smaller screens;
-        }
+        - Improved search functionality to handle special characters;
+        - Fixed colors in pages;
+        - Added loader animation for page transitions;
+        - Updated splash screen with new sound effects;
+        - Added username to the top of the page;
+    }
 }
