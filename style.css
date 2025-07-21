@@ -443,9 +443,9 @@ i{
 .card__skeleton {
     background-image: linear-gradient(
         90deg,
-        #ccc 0px,
-        rgb(229 229 229 / 90%) 40px,
-        #ccc 80px
+        #00c8ff 0px,
+        rgba(47, 155, 185, 0.9) 40px,
+        #5557d75f 80px
     );
     background-size: 300%;
     background-position: 100% 0;
