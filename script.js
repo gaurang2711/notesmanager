@@ -19,6 +19,30 @@ const userNameInput = document.getElementById('userNameInput');
 const userBirthdateInput = document.getElementById('userBirthdateInput');
 const saveUserBtn = document.getElementById('saveUserBtn');
 
+// Function to show a custom message box instead of alert()
+function showMessageBox(message, type = 'error') {
+    const messageBox = document.createElement('div');
+    messageBox.textContent = message;
+    messageBox.style.cssText = `
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 15px 25px;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        z-index: 10001;
+        font-family: Ubuntu;
+        font-size: 1rem;
+        text-align: center;
+        ${type === 'error' ? 'background-color: #ffdddd; color: #d8000c; border: 1px solid #d8000c;' : 'background-color: #d4edda; color: #155724; border: 1px solid #28a745;'}
+    `;
+    document.body.appendChild(messageBox);
+    setTimeout(() => {
+        messageBox.remove();
+    }, 3000);
+}
+
 // Function to show the user info modal
 function showUserModal() {
     console.log("Attempting to show user modal...");
@@ -67,33 +91,20 @@ saveUserBtn.addEventListener('click', () => {
     const name = userNameInput.value.trim();
     const birthdate = userBirthdateInput.value;
 
+    // --- New validation for username length ---
+    if (name.length > 6) {
+        showMessageBox("Username cannot exceed 6 characters.", 'error');
+        console.log("Validation failed: Username too long.");
+        return; // Stop execution if validation fails
+    }
+    // --- End new validation ---
+
     if (name && birthdate) {
         saveUserData(name, birthdate);
         hideUserModal();
     } else {
         console.log("Validation failed: Name or birthdate missing.");
-        const messageBox = document.createElement('div');
-        messageBox.textContent = "Please enter both your name and birthdate.";
-        messageBox.style.cssText = `
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: #ffdddd;
-            color: #d8000c;
-            padding: 15px 25px;
-            border: 1px solid #d8000c;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            z-index: 10001;
-            font-family: Ubuntu;
-            font-size: 1rem;
-            text-align: center;
-        `;
-        document.body.appendChild(messageBox);
-        setTimeout(() => {
-            messageBox.remove();
-        }, 3000);
+        showMessageBox("Please enter both your name and birthdate.", 'error');
     }
 });
 
