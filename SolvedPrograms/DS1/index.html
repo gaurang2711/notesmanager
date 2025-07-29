@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C - DSA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="p-4 bg-gray-100 min-h-screen font-sans">
+    
+    <button onclick="aFunc()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-4 shadow-md">
+        SET A
+    </button>
+    <div id="set1" class="hidden mb-6">
+        <table class="w-1/5 border border-collapse border-gray-300 text-center shadow-lg">
+            <thead>
+                <tr>
+                    <th class="py-2 px-4 bg-gray-200 border-b border-gray-300">Question</th>
+                    <th class="py-2 px-4 bg-gray-200 border-b border-gray-300">Link</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="py-2 px-4 border-b border-gray-300">Q1</td>
+                    <td class="py-2 px-4 border-b border-gray-300">
+                        <a href="./SET 1/1.c" class="text-blue-600 hover:text-blue-800 underline">See</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="py-2 px-4 border-b border-gray-300">Q2</td>
+                    <td class="py-2 px-4 border-b border-gray-300">
+                        <a href="./SET 1/2.c" class="text-blue-600 hover:text-blue-800 underline">See</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <button onclick="bFunc()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-4 shadow-md">
+        SET B
+    </button>
+    <div id="set2" class="hidden mb-6">
+        <table class="w-1/5 border border-collapse border-gray-300 text-center shadow-lg">
+            <thead>
+                <tr>
+                    <th class="py-2 px-4 bg-gray-200 border-b border-gray-300">Question</th>
+                    <th class="py-2 px-4 bg-gray-200 border-b border-gray-300">Link</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="py-2 px-4 border-b border-gray-300">Q1</td>
+                    <td class="py-2 px-4 border-b border-gray-300">
+                        <a href="./SET 2/1.c" class="text-blue-600 hover:text-blue-800 underline">See</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="py-2 px-4 border-b border-gray-300">Q2</td>
+                    <td class="py-2 px-4 border-b border-gray-300">
+                        <a href="./SET 2/2.c" class="text-blue-600 hover:text-blue-800 underline">See</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        function aFunc() {
+            var set1 = document.getElementById("set1");
+            set1.classList.toggle('hidden'); // Toggles the 'hidden' class
+        }
+        function bFunc() {
+            var set2 = document.getElementById("set2"); // Corrected ID to set2
+            set2.classList.toggle('hidden'); // Toggles the 'hidden' class
+        }
+    </script>
+</body>
+</html>
