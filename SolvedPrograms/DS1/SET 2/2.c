@@ -1,34 +1,31 @@
 #include<stdio.h>
-#include<string.h>
 
 struct emp{
     int id;
     int age;
 };
 
-void printerOP(struct emp e[], int n){
+void printFunc(struct emp arr[], int n){
     for(int i = 0; i < n; i++){
-        printf("ID: %d\nAGE: %d\n", e[i].id, e[i].age);
+        printf("ID: %d\nAge: %d\n", arr[i].id, arr[i].age);
     }
 }
 
 void partition(){
-    printf("\n-----------------------------------------------------\n");
+    printf("\n------------------------------------------------\n");
 }
 
-void sorter(struct emp e[], int n){
-    struct emp key;
+void insSort(struct emp arr[], int n){
     int i, j;
+    struct emp key;
     for(i = 1; i < n; i++){
-        key = e[i];
+        key = arr[i];
         j = i - 1;
-        while (j >= 0 && e[j].age > key.age)
-        {
-            e[j + 1] = e[j];
+        while(j>=0 && arr[j].age > key.age){
+            arr[j + 1] = arr[j];
             j--;
         }
-        e[j + 1] = key;
-
+        arr[j + 1] = key;
     }
 }
 
@@ -38,36 +35,35 @@ int main(){
     struct emp e[100];
 
     fp = fopen("emp.txt", "r");
-
     if(fp == NULL){
-        printf("\nERROR IN FILE\n");
+        printf("Error occured\n");
         return -1;
     }
 
-    while(fscanf(fp, "%d %d", &e[count].id, &e[count].age) == 2){
+    while(fscanf(fp, "%d %d", &e[count].id, &e[count].age) == 2)
+    {
         count++;
         if(count >= 100){
-            printf("MAXIMUM CHAR REACHED\n");
+            printf("Maximum character reached\n");
             break;
         }
     }
 
     fclose(fp);
 
-    if(fp == NULL){
-        printf("FILE IS EMPTY\n");
+    if(count == 0){
+        printf("File is empty\n");
         return 0;
     }
 
+    printf("BEFORE SORTING\n");
 
     partition();
-    printf("BEFORE SORT\n");
-    printerOP(e, count);
-    sorter(e, count);
-    printf("AFTER SORT\n");
+    printFunc(e, count);
     partition();
-    printerOP(e, count);
+    insSort(e, count);
+    partition();
+    printFunc(e, count);
 
     return 0;
-
 }
