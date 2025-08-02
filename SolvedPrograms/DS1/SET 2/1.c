@@ -1,25 +1,17 @@
 #include<stdio.h>
 #include<string.h>
 
-struct student{
+struct stud
+{
     int roll;
     char name[100];
 };
 
-void printerOP(struct student arr[], int n){
-    for(int i = 0; i < n; i++){
-        printf("Roll: %d\nName: %s\n", arr[i].roll, arr[i].name);
-    }
-}
-
-void partition(){
-    printf("\n--------------------------------------------\n");
-}
-
-void buBBler(struct student s[], int n){
-    struct student temp;
+void bubSort(struct stud s[], int n)
+{
+    struct stud temp;
     for(int i = 0; i < n - 1; i++){
-        for(int j = 0; j < n - i - 1; j++){
+        for(int j = 0; j < n - i -1; j++){
             if(strcmp(s[j].name, s[j + 1].name) > 0){
                 temp = s[j];
                 s[j] = s[j + 1];
@@ -29,39 +21,47 @@ void buBBler(struct student s[], int n){
     }
 }
 
+void printerOP(struct stud s[], int n){
+    for(int i = 0; i < n; i++){
+        printf("Roll: [%d]\tName: [%s]\n", s[i].roll, s[i].name);
+    }
+}
+
+void partition(){
+    printf("\n________________________________________________________________________\n");
+}
+
 int main(){
     FILE *fp;
-    struct student s[100];
-    int count = 0;
+    int n = 0;
+    struct stud s[100];
 
     fp = fopen("studinfo.txt", "r");
 
     if(fp == NULL){
-        printf("ERROR IN FILE\n");
+        printf("There is something error in file\n");
         return -1;
     }
 
-    while(fscanf(fp, "%d %[^\n]", &s[count].roll, &s[count].name) == 2){
-        count++;
-        if(count >= 100){
-            printf("MAXIMUM CHARACTER LIMIT REACHED\n");
+    while (fscanf(fp, "%d %[^\n]", &s[n].roll, &s[n].name) == 2)
+    {
+        n++;
+        if(n >= 100){
+            printf("Maximum level reached\n");
             break;
         }
     }
 
     fclose(fp);
-
-    if(count == 0){
-        printf("\nFile is empty\n");
-    }
-
-    printf("BEFORE SORT\n");
-    printerOP(s, count);
-    partition();
-    buBBler(s, count);
-    partition();
-    printerOP(s, count);
-
-    return 0;
     
+    printf("\nBefore Sort\n");
+    printerOP(s, n);
+    bubSort(s, n);
+    partition();
+    printf("\nAfter Sort\n");
+    printerOP(s, n);
+
+        printf("\n//Coded by Gaurang Dalal; SY BCA\n");
+    return 0;
+
 }

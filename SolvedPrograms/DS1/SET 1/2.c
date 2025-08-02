@@ -37,5 +37,6 @@ int main(){
     insertionSort(ptr, n);
     printOP(ptr, n);
 
+    printf("\n//Coded by Gaurang Dalal; SY BCA\n");
     return 0;
 }
