@@ -59,5 +59,7 @@ int main()
     printf("--After Sort--\n");
     disp(A, n);
 
+
+    printf("\n--CODED BY GAURANG DALAL--\n");
     return 0;
 }

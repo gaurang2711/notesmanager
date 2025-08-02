@@ -7,7 +7,7 @@ struct stud
     char name[100];
 };
 
-void buprintf("--Before Sort--\n");ort(struct stud s[], int n)
+void bubSort(struct stud s[], int n)
 {
     struct stud temp;
     for(int i = 0; i < n - 1; i++){
@@ -56,12 +56,12 @@ int main(){
     
     printf("\nBefore Sort\n");
     printerOP(s, n);
-    buprintf("--Before Sort--\n");ort(s, n);
+    bubSort(s, n);
     partition();
     printf("\nAfter Sort\n");
     printerOP(s, n);
 
-        printf("\n//Coded by Gaurang Dalal; SY BCA\n");
+    printf("\n--CODED BY GAURANG DALAL--\n");
     return 0;
 
 }

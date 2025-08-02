@@ -57,4 +57,8 @@ int main(){
     quickSort(ptr, 0, n - 1);
     printf("--After Sort--\n");
     disp(ptr, n);
+
+    printf("\n--CODED BY GAURANG DALAL--\n");
+
+    return 0;
 }

@@ -38,7 +38,7 @@ int main(){
     printOP(ptr, n);
 
 
-    printf("\n//Coded by Gaurang Dalal; SY BCA\n");
+    printf("\n--CODED BY GAURANG DALAL--\n");
     return 0;
 
 }

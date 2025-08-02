@@ -17,36 +17,75 @@
     <br>
 
     <div class="searchBar">
-        <button id="searchButton" onclick="history.back()"><i class="fa-solid fa-arrow-left"></i></button>
+        <a href="../index.html" style="text-decoration: none;"><button id="searchButton"><i class="fa-solid fa-arrow-left"></i></button></a>
         <input type="text" id="searchInput" placeholder="Search for notes...">
         <button id="searchButton"><i class="fa-solid fa-magnifying-glass"></i></button>
     </div>
 
-    <div class="cards-container">
-        <article class="card">
-            <section class="card__hero">
-                <header class="card__hero-header">
-                    <div class="card__icon">
-                    </div>
-                </header>
-                <p class="card__job-title">Assignment 1: Non-Recursive Sorting Techniques</p>
-            </section>
-            <footer class="card__footer">
-                <div class="card__job-summary">
-                    <div class="card__job-icon">
-                        <i class="fa-solid fa-note-sticky"></i>
-                    </div>
-                    <div class="card__job">
-                        <p class="card__job-title">
-                            Non-Recursive<br />
-                            Sorting Techniques.
-                        </p>
-                    </div>
-                </div>
-                <a href="../zips/DS/ASSIGNMENT_1_NON_RECURSIVE_SORTING_TECHNIQUES.zip" style="text-decoration: none;"><button class="card__btn">view</button></a>
-            </footer>
+    <div class="skeleton-container hidden" id="skeletonLoader">
+            <div class="card skeleton-card">
+                <div class="card__skeleton card__title"></div>
+                <div class="card__skeleton card__description"></div>
+            </div>
+            <div class="card skeleton-card">
+                <div class="card__skeleton card__title"></div>
+                <div class="card__skeleton card__description"></div>
+            </div>
+            <div class="card skeleton-card">
+                <div class="card__skeleton card__title"></div>
+                <div class="card__skeleton card__description"></div>
+            </div>
+        </div>
 
-    </div>
+        <!-- Actual Cards Container - Initially hidden, becomes visible after skeleton fades -->
+        <div class="cards-container hidden" id="mainContent">
+            <article class="card">
+                <section class="card__hero">
+                    <header class="card__hero-header">
+                        <div class="card__icon">
+                        </div>
+                    </header>
+                    <p class="card__job-title">Assignment 1: Non-Recursive Sorting Techniques</p>
+                </section>
+                <footer class="card__footer">
+                    <div class="card__job-summary">
+                        <div class="card__job-icon">
+                            <i class="fa-solid fa-note-sticky"></i>
+                        </div>
+                        <div class="card__job">
+                            <p class="card__job-title">
+                                Assignment 1 <br />
+                                Non-Recursive Sorting Techniques
+                            </p>
+                        </div>
+                    </div>
+                    <a href="../zips/DS/ASSIGNMENT_1_NON_RECURSIVE_SORTING_TECHNIQUES.zip" style="text-decoration: none;"><button class="card__btn">view</button></a>
+                </footer>
+            </article>
+            <article class="card">
+                <section class="card__hero">
+                    <header class="card__hero-header">
+                        <div class="card__icon">
+                        </div>
+                    </header>
+                    <p class="card__job-title">Assignment 2: Recursive Sorting Techniques</p>
+                </section>
+                <footer class="card__footer">
+                    <div class="card__job-summary">
+                        <div class="card__job-icon">
+                            <i class="fa-solid fa-note-sticky"></i>
+                        </div>
+                        <div class="card__job">
+                            <p class="card__job-title">
+                                Assignment 2 <br />
+                                Recursive Sorting Techniques
+                            </p>
+                        </div>
+                    </div>
+                    <a href="../zips/DS/ASSIGNMENT_2_RECURSIVE_SORTING_TECHNIQUES.zip" style="text-decoration: none;"><button class="card__btn">view</button></a>
+                </footer>
+            </article>
+        </div>
 
     <div id="noResultsMessage" class="hidden-message">
         <p>No results found. Please try a different search term.</p>

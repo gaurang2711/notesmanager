@@ -40,11 +40,12 @@ int main(){
     printf("Before Sort\n");
     printFunc(arr, n);
     divider();
+    printf("--Before Sort--\n");
     buprintf("--Before Sort--\n");ort(arr, n);
     divider();
     printf("After sort: \n");
     printFunc(arr, n);
 
-        printf("\n//Coded by Gaurang Dalal; SY BCA\n");
+    printf("\n--CODED BY GAURANG DALAL--\n");
     return 0;
 }

@@ -37,6 +37,6 @@ int main(){
     insertionSort(ptr, n);
     printOP(ptr, n);
 
-    printf("\n//Coded by Gaurang Dalal; SY BCA\n");
+    printf("\n--CODED BY GAURANG DALAL--\n");
     return 0;
 }

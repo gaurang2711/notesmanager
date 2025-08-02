@@ -40,5 +40,5 @@ int main(){
     printf("After Sort: \n");
     disp(arr, n);
 
-        printf("\n//Coded by Gaurang Dalal; SY BCA\n");
+        printf("\n--CODED BY GAURANG DALAL--\n");
 }

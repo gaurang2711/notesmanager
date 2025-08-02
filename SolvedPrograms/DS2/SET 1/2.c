@@ -61,4 +61,8 @@ int main(){
     qckSort(arr, 0, n - 1);
     printf("--After Sort--\n");
     disp(arr, n);
+
+    printf("\n--CODED BY GAURANG DALAL--\n");
+
+    return 0;
 }
