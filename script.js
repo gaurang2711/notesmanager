@@ -252,3 +252,16 @@ function performSearch() {
         }
     }, 800);
 }
+
+function udt(){
+    const now = new Date();
+    const dTE = document.getElementById('Date');
+
+    const opt = {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit'};
+    dTE.innerHTML = now.toLocaleString(undefined, opt);
+}
+
+udt();
+
+
+setInterval(udt, 1000);
