@@ -9,7 +9,7 @@ void printFunc(int *arr, int n){
     printf("\n");
 }
 
-void bubSort(int *arr, int n){
+void buprintf("--Before Sort--\n");ort(int *arr, int n){
     int temp;
     for(int i = 0; i < n - 1; i++){
         for(int j = 0; j < n - i - 1; j++){
@@ -40,7 +40,7 @@ int main(){
     printf("Before Sort\n");
     printFunc(arr, n);
     divider();
-    bubSort(arr, n);
+    buprintf("--Before Sort--\n");ort(arr, n);
     divider();
     printf("After sort: \n");
     printFunc(arr, n);
